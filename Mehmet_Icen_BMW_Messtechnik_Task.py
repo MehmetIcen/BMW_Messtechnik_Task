@@ -21,7 +21,7 @@ df[['Last Name']] = df [['Last Name']].ffill(limit = 1)
 # Datum in das deutsche Format dd.mm.yyyy umwandeln
 df['Date of birth'] = pd.to_datetime(df['Date of birth'], errors='coerce', dayfirst=True).dt.strftime('%d.%m.%Y')
 
-#Funktion zur Suche nach spezifischer ID
+#Funktion zur Suche nach spezifischer Personen-ID
 def find_people_by_id(df, search_id):
     result = df[df['ID'] == search_id]
     return result
@@ -31,5 +31,5 @@ search_id = '5d2feAfbdCAA6B5'
 result_df = find_people_by_id(df, search_id)
 print(result_df)
 
-# Bereinigte Daten in eine neue CSV-Datei speichern, mit "sep = ';'" für die Einteilung in richtige Columns
+# Bereinigte Daten in eine neue CSV-Datei speichern, mit "sep = ';'" für die Einteilung der Spalten und Reihen
 result_df.to_csv('cleaned_data_Sample_list.csv', index=False, sep=';')
