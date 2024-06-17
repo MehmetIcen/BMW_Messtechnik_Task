@@ -13,7 +13,7 @@ df = pd.read_csv('Sample_list.csv', sep=';')
 # Leere Zellen und 'X'-Zeichen bereinigen aus der Excel-Datei und durch NaN ersetzen "Not a Number" äquivalent zu Null
 df.replace('X', np.nan, inplace=True)
 
-# Leere Zellen in spezifischen Spalten auffüllen, die Funktion Forward Fill übernimmt den Eintrag des letzten Feldes für die kommende Reihe
+# Leere Zellen in spezifischen Spalten auffüllen, die Funktion Forward Fill übernimmt den Eintrag des letzten Feldes für die kommende Zelle
 df[['ID']] = df[['ID']].ffill()
 #Provisorische Lösung, Überarbeitung notwendig - ffill() limitiert auf maximal 1, damit Inhalt der CSV-Datei äquivalent zur xlsx-Datei ist
 df[['Last Name']] = df [['Last Name']].ffill(limit = 1)
